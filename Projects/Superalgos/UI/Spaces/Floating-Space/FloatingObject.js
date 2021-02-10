@@ -4,7 +4,7 @@ function newFloatingObject() {
     const ERROR_LOG = true
 
     const logger = newWebDebugLog()
-    
+
 
     let thisObject = {
         fitFunction: undefined,
@@ -47,6 +47,7 @@ function newFloatingObject() {
         pinToggle: pinToggle,
         freezeToggle: freezeToggle,
         collapseToggle: collapseToggle,
+        forceCollapse: forceCollapse,
         angleToParentToggle: angleToParentToggle,
         distanceToParentToggle: distanceToParentToggle,
         arrangementStyleToggle: arrangementStyleToggle,
@@ -210,6 +211,14 @@ function newFloatingObject() {
             thisObject.collapsedManually = false
         }
         return thisObject.isCollapsed
+    }
+
+    function forceCollapse(newState) {
+        if (thisObject.isCollapsed !== newState) {
+            thisObject.isCollapsed = newState
+            thisObject.collapsedManually = newState
+        }
+        return thisObject.isCollapsed;
     }
 
     function angleToParentToggle() {

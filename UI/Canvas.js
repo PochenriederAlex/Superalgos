@@ -409,6 +409,13 @@ function newCanvas() {
             UI.projects.superalgos.spaces.floatingSpace.exitMapMode()
         }
 
+        // Toggle all nodes
+        if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'Q' || event.key === 'q')) {
+            UI.projects.superalgos.spaces.floatingSpace.forceCollapseAllNodes()
+            event.preventDefault()
+            return
+        }
+
         if (event.shiftKey === true && (event.ctrlKey === true || event.metaKey === true) && (event.key === 'M' || event.key === 'm')) {
             UI.projects.superalgos.spaces.floatingSpace.toggleMapMode()
             event.preventDefault()

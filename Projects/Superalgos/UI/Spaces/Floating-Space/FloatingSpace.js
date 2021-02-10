@@ -16,6 +16,7 @@ function newSuperalgosFloatingSpace() {
         drawChainLines: true,
         style: undefined,
         settings: undefined,
+        forceCollapseAllNodes: forceCollapseAllNodes,
         toggleDrawChainLines: toggleDrawChainLines,
         toggleDrawReferenceLines: toggleDrawReferenceLines,
         toggleMapMode: toggleMapMode,
@@ -150,6 +151,14 @@ function newSuperalgosFloatingSpace() {
             thisObject.drawChainLines = false
         } else {
             thisObject.drawChainLines = true
+        }
+    }
+
+    function forceCollapseAllNodes() {
+        let heads = UI.projects.superalgos.spaces.designSpace.workspace.getHierarchyHeads()
+        console.log(heads)
+        for (let i = 0; i < heads.length; i++) {
+            heads[i].payload.floatingObject.forceCollapse(true)
         }
     }
 
